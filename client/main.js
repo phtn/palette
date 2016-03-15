@@ -63,34 +63,27 @@ Template.main.events({
 	},
 
 	'click .panel-one' () {
-		rgb = $('.panel-one').css('background-color')
-		console.log(rgb)
-		console.log(rgb2hex(rgb))
 		
-		sAlert.info(rgb2hex(rgb).toUpperCase() + '<br>' + rgb, {
-			effect: 'slide',
-			timeout: 'none',
-			stack: false,
-			postion: 'top-right',
-			html: true
-		})
+		alertInfo('.panel-one', '1')
 
 	},
 
 	'click .panel-two' () {
-		console.log($('.panel-two').css('background-color'))
+		
+		alertInfo('.panel-two')
+
 	},
 
 	'click .panel-three' () {
-		console.log($('.panel-three').css('background-color'))
+		alertInfo('.panel-three')
 	},
 
 	'click .panel-four' () {
-		console.log($('.panel-four').css('background-color'))
+		alertInfo('.panel-four')
 	},
 
 	'click .panel-five' () {
-		console.log($('.panel-five').css('background-color'))
+		alertInfo('.panel-five')
 	}
 	
 });
@@ -121,4 +114,19 @@ function rgb2hex(rgb){
   ("0" + parseInt(rgb[1],10).toString(16)).slice(-2) +
   ("0" + parseInt(rgb[2],10).toString(16)).slice(-2) +
   ("0" + parseInt(rgb[3],10).toString(16)).slice(-2) : '';
+}
+
+function alertInfo(panel, num) {
+	var rgb = $(panel).css('background-color')
+	//	console.log(rgb)
+	//	console.log(rgb2hex(rgb))
+		
+	sAlert.info('<span class="fa fa-square" style="color:'+rgb2hex(rgb)+'"></span> <br>' + rgb2hex(rgb).toUpperCase() + '<br>' + rgb, {
+		effect: 'slide',
+		timeout: 'none',
+		stack: {spacing: 5, limit: 5},
+		postion: 'top',
+		html: true,
+		offset: 50
+	});
 }
