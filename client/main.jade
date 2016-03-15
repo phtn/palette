@@ -1,0 +1,30 @@
+template(name='main')
+
+	div.container-fluid#main
+		
+		div.container-fluid.text-center.panels-div
+			div.row-fluid
+				div.col-xs-4
+					div.panel.panel-default.pad.panel-one.animated.flipInX
+				div.col-xs-4
+					div.panel.panel-default.pad.panel-two.animated.flipInX
+				div.col-xs-4
+					div.panel.panel-default.pad.panel-three.animated.flipInX
+			div.row-fluid
+				div.col-xs-4.col-xs-offset-2
+					div.panel.panel-default.pad.panel-four.animated.flipInX
+				div.col-xs-4.col-xs-offset-0
+					div.panel.panel-default.pad.panel-five.animated.flipInX
+
+		div.container-fluid.text-center.info-div
+			p.paletteTitle 
+				strong #{title}
+			p.author by 
+				strong #{author}
+			br
+			button.btn.btn-default NEXT
+			
+		
+
+		
+			
