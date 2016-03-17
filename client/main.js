@@ -50,7 +50,12 @@ Template.main.events({
 		
 		getSessionColours();
 		
-		rotateMenu(Math.floor((Math.random() * 7) ));
+		//rotateMenu(Math.floor((Math.random() * 7) ));
+		var random = Math.floor((Math.random() * 100) + 1);
+		var rad = 57.2958;
+		rotateMenu(Session.get('getPaletteTitle').hearts * random)
+
+		//$('#menu').css('-webkit-transform','rotate('+ 0 +'deg)');
 
 	},
 
@@ -76,6 +81,12 @@ Template.main.events({
 
 	'click .panel-five' () {
 		alertInfo('.panel-five')
+	},
+	'click li' () {
+		console.log('top')
+	},
+	'click #rand' () {
+		console.log('rand')
 	}
 	
 });
@@ -130,6 +141,7 @@ function rotateMenu(deg) {
 
 	var degrees = [57.2958, 114.592, 171.887, 229.183, 286.479, 343.775, 401.07, 458.366];
 
-	$('#menu').css('-webkit-transform','rotate('+ degrees[deg] +'deg)');
+	$('#menu').css('-webkit-transform','rotate('+ deg +'deg)');
+
 	
 }

@@ -4,13 +4,18 @@ template(name='nav')
 				div(v-on:click='increment').navbar-header
 					span.brand
 						button(data-toggle="dropdown").btn.dropdown-toggle#menu-btn
-							span.fa.fa-cog#menu
+							span.fa.fa-asterisk#menu
 						ul.dropdown-menu.text-center#dd
 							li
 								p
-									span.animated.fadeInLeft#top Top
+									a(href="#")
+										span.fa.fa-angle-right.animated.fadeInLeft.no-select#top 
+											span Top
 								p
-									span.animated.fadeInLeft#rand Rand
+									a(href="/")
+										span.fa.fa-angle-right.animated.fadeInLeft.no-select#rand 
+											span Rand
+
 							
 						strong CL 
 						span client
