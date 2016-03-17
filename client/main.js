@@ -24,20 +24,9 @@ Template.main.rendered = function() {
 		},
 		
 		methods: {
-
-			printColor() {
-				var bgcolor = '#' + '1ca8dd';
-				document.getElementById('p1').style.backgroundColor=bgcolor;
-				console.log($('#p1').css('background-color'));
-				var color = $('#p1').css('background-color');
-				//console.log(rgb2hex(color))
-				this.counter += 1;
-
-				console.log(Palettes.find().count());
-				console.log(bgcolor)
-
+				//
 			}
-		}
+		
 	});
 
 
@@ -46,19 +35,22 @@ Template.main.rendered = function() {
 
 // EVENTS
 Template.main.events({
-	'click button': () => {
+	'click .next-div' () {
 		
-
 
 		Meteor.call('getPalettes', (err, res) => {
 			Session.setPersistent('getPaletteTitle', res)
 		});
 		
-		
-		getSessionColours()
+		$('.paletteTitle').fadeTo(100, .1)
+		$('.paletteTitle').fadeTo(100, 1)
 
+		$('#right').fadeTo(100, .1)
+		$('#right').fadeTo(100, 1)
 		
+		getSessionColours();
 		
+		rotateMenu(Math.floor((Math.random() * 7) ));
 
 	},
 
@@ -106,6 +98,8 @@ function getSessionColours() {
 		$('.panel-three').css('background-color', '#' + Session.get('getPaletteTitle').c3)
 		$('.panel-four').css('background-color', '#' + Session.get('getPaletteTitle').c4)
 		$('.panel-five').css('background-color', '#' + Session.get('getPaletteTitle').c5)
+		$('#menu').css('color', '#' + Session.get('getPaletteTitle').c2)
+
 }
 
 function rgb2hex(rgb){
@@ -120,6 +114,7 @@ function alertInfo(panel, num) {
 	var rgb = $(panel).css('background-color')
 	//	console.log(rgb)
 	//	console.log(rgb2hex(rgb))
+
 		
 	sAlert.info('<span class="fa fa-square" style="color:'+rgb2hex(rgb)+'"></span> <br>' + rgb2hex(rgb).toUpperCase() + '<br>' + rgb, {
 		effect: 'slide',
@@ -129,4 +124,12 @@ function alertInfo(panel, num) {
 		html: true,
 		offset: 50
 	});
+}
+
+function rotateMenu(deg) {
+
+	var degrees = [57.2958, 114.592, 171.887, 229.183, 286.479, 343.775, 401.07, 458.366];
+
+	$('#menu').css('-webkit-transform','rotate('+ degrees[deg] +'deg)');
+	
 }

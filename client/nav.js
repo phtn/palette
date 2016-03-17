@@ -11,3 +11,11 @@ Template.nav.rendered = function() {
 		}
 	})
 }
+
+// EVENTS
+Template.nav.events({
+	'click #menu-btn'() {
+		$('#menu').fadeTo(100, .1)
+		$('#menu').fadeTo(100, 1)
+	}
+})

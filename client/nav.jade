@@ -3,7 +3,16 @@ template(name='nav')
 			div.container-fluid
 				div(v-on:click='increment').navbar-header
 					span.brand
+						button(data-toggle="dropdown").btn.dropdown-toggle#menu-btn
+							span.fa.fa-cog#menu
+						ul.dropdown-menu.text-center#dd
+							li
+								p
+									span.animated.fadeInLeft#top Top
+								p
+									span.animated.fadeInLeft#rand Rand
+							
 						strong CL 
 						span client
-					span.hex hex
+					span.hex random
 

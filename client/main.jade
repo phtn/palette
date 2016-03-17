@@ -5,16 +5,16 @@ template(name='main')
 		div.container-fluid.text-center.panels-div
 			div.row-fluid
 				div.col-xs-4
-					div.panel.panel-default.pad.panel-one.animated.flipInX
+					div.panel.panel-default.pad.panel-one
 				div.col-xs-4
-					div.panel.panel-default.pad.panel-two.animated.flipInX
+					div.panel.panel-default.pad.panel-two
 				div.col-xs-4
-					div.panel.panel-default.pad.panel-three.animated.flipInX
+					div.panel.panel-default.pad.panel-three
 			div.row-fluid
 				div.col-xs-4.col-xs-offset-2
-					div.panel.panel-default.pad.panel-four.animated.flipInX
+					div.panel.panel-default.pad.panel-four
 				div.col-xs-4.col-xs-offset-0
-					div.panel.panel-default.pad.panel-five.animated.flipInX
+					div.panel.panel-default.pad.panel-five
 
 		div.container-fluid.text-center.info-div
 			p.paletteTitle 
@@ -22,7 +22,21 @@ template(name='main')
 			p.author by 
 				strong #{author}
 			br
-			button.btn.btn-default NEXT
+			//button.btn.btn-primary#next NEXT
+
+
+
+
+		div.container-fluid.text-center.next-div
+			p
+				span.fa.fa-angle-double-right#right
+
+
+
+		div.container-fluid.text-center.credits
+			p Thanks to 
+				a(href="http://www.colourlovers.com") Colourlovers.com API
+
 			
 		
 
