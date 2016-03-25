@@ -1,11 +1,11 @@
 Template.main.rendered = function() {
-	getSessionColours()
+	//getSessionColours()
 	//var result = Meteor.http.get('http://www.colourlovers.com/api/palettes/random?format=json')
 
 	//console.log(result.data[0].title)
 	
 
-	var vMain = new Vue ({
+/*	var vMain = new Vue ({
 		el: '#main',
 		
 		data: {
@@ -27,7 +27,7 @@ Template.main.rendered = function() {
 				//
 			}
 		
-	});
+	});*/
 
 
 
@@ -94,10 +94,10 @@ Template.main.events({
 // HELPERS
 Template.main.helpers({
 	title() {
-		return Session.get('getPaletteTitle').title
+		return Session.get('paletteTitle')
 	},
 	author() {
-		return Session.get('getPaletteTitle').author
+		return Session.get('paletteAuthor')
 	}
 });
 
@@ -110,6 +110,8 @@ function getSessionColours() {
 		$('.panel-four').css('background-color', '#' + Session.get('getPaletteTitle').c4)
 		$('.panel-five').css('background-color', '#' + Session.get('getPaletteTitle').c5)
 		$('#menu').css('color', '#' + Session.get('getPaletteTitle').c2)
+		Session.setPersistent('paletteTitle', Session.get('getPaletteTitle').title)
+		Session.setPersistent('paletteAuthor', Session.get('getPaletteTitle').author)
 
 }
 
